@@ -1,0 +1,21 @@
+# Lychee 0.20. Matches the binary installed by .github/workflows/ci.yml.
+verbose = "info"
+no_progress = true
+max_retries = 2
+timeout = 20
+include_fragments = false
+include_mail = false
+# A browser user agent. A few of the spec and conference sites answer
+# 403 to the default checker agent and 200 to a browser.
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+
+# 429 is rate limiting, not a dead link. rfc-editor.org does this when
+# the same RFC is checked many times in one pass.
+accept = ["200", "429"]
+
+# defense.gov answers 403 to this checker. The CNSA 2.0 PDF at this host
+# was fetched separately. It is PP-22-1338, September 2022.
+exclude = [
+  '^https://media\.defense\.gov/',
+  '^https://www\.nsa\.gov/',
+]
