@@ -1,7 +1,8 @@
 # Lychee 0.20. Matches the binary installed by .github/workflows/ci.yml.
 verbose = "info"
 no_progress = true
-max_retries = 2
+max_retries = 4
+retry_wait_time = 2
 timeout = 20
 include_fragments = false
 include_mail = false

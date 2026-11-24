@@ -31,4 +31,8 @@ jobs:
           sudo tar -C /usr/local/bin -xzf /tmp/lychee.tar.gz
           lychee --version
       - name: Check links
+        env:
+          # Lychee uses this for github.com links. Unauthenticated checks
+          # from Actions get 403/429/503 once the shared IP is rate limited.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: lychee --config .lychee.toml .
