@@ -1,0 +1,59 @@
+name: Resource suggestion
+description: Suggest a free reading, video, spec, or exercise.
+title: "Resource: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The link has to load, and the resource has to be free from start to finish.
+        Do not send Cryptopals or CryptoHack solution writeups.
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: The page you just opened.
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options:
+        - Foundations
+        - Symmetric cryptography
+        - Hashes, MACs, and KDFs
+        - Public key
+        - PKI and X.509
+        - Protocols
+        - Attacks and cryptanalysis
+        - Post-quantum
+        - Applied key management
+        - Giving back
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: day
+    attributes:
+      label: Day number
+      description: Leave blank if it covers a whole phase.
+      placeholder: "17"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs
+      description: What a reader should get from it, and which part to use.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I opened this link and it loaded.
+          required: true
+        - label: The full resource is free. A paid certificate or a paywalled book does not count.
+          required: true
+        - label: This is not a solution writeup for Cryptopals or CryptoHack.
+          required: true
